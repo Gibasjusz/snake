@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.all {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(128, 128, 128);
+}
+
+.game {
+    min-width: 1500px;
+    min-height: 600px;
+    max-width: 1500px;
+    max-height: 600px;
+    display: flex;
+    background-color: rgb(32, 32, 32);
+    margin: 20px;
+}
+
+.control {
+    width: 80vw;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(37, 36, 34);
+}
+
+.control .razem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.control button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    margin: 10px;
+}
+
+.control #right {
+    margin-left: 80px;
+}
+
+#right img {
+    transform: rotate(90deg);
+}
+
+#left img {
+    transform: rotate(270deg);
+}
+
+#down img {
+    transform: rotate(180deg);
+}
+
+.object {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: orange;
+    border-radius: 10px;
+}
+
+.owocek {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    border-radius: 10px;
+}

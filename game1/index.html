@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoveGame</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <section class="all">
+        <div class="game" id="game">
+            <div class="object" id="object"></div>
+            <div class="owocek" id="owocek"></div>
+        </div>
+        <div class="control" id="control">
+            <button id="gora" onclick="inv_up()"><img src="arrow.png"></button>
+            <div class="razem">
+                <button id="left" onclick="inv_left()"><img src="arrow.png"></button>
+                <button id="right" onclick="inv_right()"><img src="arrow.png"></button>
+            </div>
+            <button id="down" onclick="inv_down()"><img src="arrow.png"></button>
+        </div>
+    </section>
+
+    <script>
+        let x = 100;
+        let y = 200;
+        let klik = 0;
+
+        let o_x = 200;
+        let o_y = 200;
+
+        let object = document.getElementById("object");
+        let owocek = document.getElementById("owocek");
+
+        function move_right() {
+            x = x + 10;
+            object.style.left = x + "px";
+            object.style.top = y + "px";
+
+            if (x >= 1500 - 100) {
+                x = 0;
+            };
+
+            if (x == o_x && y == o_y) {
+                object.style.width = 60 + "px";
+            }
+        }
+
+        function move_left() {
+            x = x - 10;
+            object.style.left = x + "px";
+            object.style.top = y + "px";
+
+            if (x <= 0) {
+                x = 1500 - 100;
+            }
+        }
+
+        function move_up() {
+            y = y - 10;
+            object.style.left = x + "px";
+            object.style.top = y + "px";
+
+            if (y <= 0) {
+                y = 600 - 100;
+            }
+        }
+
+        function move_down() {
+            y = y + 10;
+            object.style.left = x + "px";
+            object.style.top = y + "px";
+
+            if (y >= 600 - 100) {
+                y = 0;
+            }
+        }
+        
+        function position() {
+            object.style.left = x + "px";
+            object.style.top = y + "px";
+        }
+
+        function owocek_position() {
+            owocek.style.left = o_x + "px";
+            owocek.style.top = o_y + "px";
+        }
+
+        function inv_right() {
+            if (klik >= 1) {
+                klik = klik -1;
+                clearInterval(zegar1);
+            }
+            zegar1 = setInterval("move_right()", 100);
+            klik = klik + 1;
+        }
+
+        function inv_left() {
+            if (klik >= 1) {
+                klik = klik -1;
+                clearInterval(zegar1);
+            }
+            zegar1 = setInterval("move_left()", 100);
+            klik = klik + 1;
+        }
+
+        function inv_down() {
+            if (klik >= 1) {
+                klik = klik -1;
+                clearInterval(zegar1);
+            }
+            zegar1 = setInterval("move_down()", 100);
+            klik = klik + 1;
+        }
+
+        function inv_up() {
+            if (klik >= 1) {
+                klik = klik -1;
+                clearInterval(zegar1);
+            }
+            zegar1 = setInterval("move_up()", 100);
+            klik = klik + 1;
+        }
+        position()
+        owocek_position()
+    </script>
+</body>
+</html>
