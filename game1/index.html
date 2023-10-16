@@ -16,25 +16,25 @@
             <button id="gora" onclick="inv_up()"><img src="arrow.png"></button>
             <div class="razem">
                 <button id="left" onclick="inv_left()"><img src="arrow.png"></button>
+                <button id="down" onclick="inv_down()"><img src="arrow.png"></button>
                 <button id="right" onclick="inv_right()"><img src="arrow.png"></button>
             </div>
-            <button id="down" onclick="inv_down()"><img src="arrow.png"></button>
         </div>
     </section>
 
     <script>
-        let x = 100;
-        let y = 200;
+        let x = 90;
+        let y = 120;
         let klik = 0;
 
-        let o_x = 200;
-        let o_y = 200;
+        let o_x = 150;
+        let o_y = 120;
 
         let object = document.getElementById("object");
         let owocek = document.getElementById("owocek");
 
         function move_right() {
-            x = x + 10;
+            x = x + 30;
             object.style.left = x + "px";
             object.style.top = y + "px";
 
@@ -48,7 +48,7 @@
         }
 
         function move_left() {
-            x = x - 10;
+            x = x - 30;
             object.style.left = x + "px";
             object.style.top = y + "px";
 
@@ -58,7 +58,7 @@
         }
 
         function move_up() {
-            y = y - 10;
+            y = y - 30;
             object.style.left = x + "px";
             object.style.top = y + "px";
 
@@ -68,11 +68,11 @@
         }
 
         function move_down() {
-            y = y + 10;
+            y = y + 30;
             object.style.left = x + "px";
             object.style.top = y + "px";
 
-            if (y >= 600 - 100) {
+            if (y >= 600 - 30) {
                 y = 0;
             }
         }
@@ -122,6 +122,27 @@
             zegar1 = setInterval("move_up()", 100);
             klik = klik + 1;
         }
+
+        document.addEventListener('keydown', function(e) {
+            switch (e.keyCode) {
+                case 37:
+                    inv_left(); 
+                break;
+
+                case 38:
+                    inv_up();
+                break;
+
+                case 39:
+                    inv_right();
+                break;
+
+                case 40:
+                    inv_down();
+                break;
+            }
+        });
+
         position()
         owocek_position()
     </script>
